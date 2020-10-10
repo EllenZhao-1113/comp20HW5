@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Quick Pick </title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <script>
+            var lottoLucky = 17;
+            var lottoNums = prompt("Enter winning numbers separated by a space", "7 17 29 35 45");
+            var lottoArr = lottoNums.split(" ");
+            lottoLucky = prompt("Enter lucky ball nuber", "17");
+
+            var one, two, three, four, five, six;
+            one = Math.floor(Math.random() * 48) + 1;
+            two = Math.floor(Math.random() * 48) + 1;
+            three = Math.floor(Math.random() * 48) + 1;
+            four = Math.floor(Math.random() * 48) + 1;
+            five = Math.floor(Math.random() * 48) + 1;
+            six = Math.floor(Math.random() * 18) + 1;
+
+            var nums = [one, two, three, four, five];
+            nums.sort();
+
+            document.write("The quick pick numbers are: ");
+
+            var i;
+            for (i = 0; i < 5; i++) {
+                document.write(nums[i] + " ");
+            }
+            document.write("<br>");
+            document.write("The lucky ball number is: " + six + "<br>" + "<br>");
+
+            document.write("The winning numbers are: ");
+
+            var j;
+            for (j = 0; j < 5; j++) {
+                document.write(lottoArr[j] + " ");
+            } 
+            document.write("<br>");
+            document.write("The lucky ball number is: " + lottoLucky + "<br>" + "<br>");
+
+            var matches = 0;
+            var luckyMatch = 0;
+            
+            var k, l;
+            for (k = 0; k < 5; k++) {
+                for (l = 0; l < 5; l++) {
+                    if (nums[k] == lottoArr[l]) 
+                        matches++;
+                }
+            }
+
+            if (six == lottoLucky) {
+                luckyMatch = 1;
+            }
+            document.write("<br>");
+
+            if (luckyMatch == 1) {
+                if (matches == 5) 
+                    document.write("You win! Your payment is: $7000 a WEEK for LIFE");
+                else if (matches == 4)
+                    document.write("You win! Your payment is: $5000");
+                else if (matches == 3)
+                    document.write("You win! Your payment is: $150");
+                else if (matches == 2)
+                    document.write("You win! Your payment is: $25");
+                else if (matches == 1)
+                    document.write("You win! Your payment is: $6");
+                else if (matches == 0)
+                    document.write("You win! Your payment is: $4");
+            }
+            if (luckyMatch == 0) {
+                if (matches == 5) 
+                    document.write("You win! Your payment is: $25000 a YEAR for LIFE");
+                else if (matches == 4)
+                    document.write("You win! Your payment is: $200");
+                else if (matches == 3)
+                    document.write("You win! Your payment is: $20");
+                else if (matches == 2)
+                    document.write("You win! Your payment is: $3");
+                else if (matches == 1)
+                    document.write("You lose!");
+                else if (matches == 0)
+                    document.write("You lose!");
+            }
+        </script>
+    </body>
+</html>
